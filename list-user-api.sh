@@ -36,7 +36,22 @@ function list_users_with_read_access {
     fi
 }
 
+#Function helper
+
+function helper {
+	if [ "$#" -ne 2 ]; then
+		echo "Please provide valid arguments with org name and repo name"
+		exit 1
+	fi
+
+}
+
+
 # Main script
+
+#check if 2 arguments have been passed
+
+helper "$@"
 
 echo "Listing users with read access to ${REPO_OWNER}/${REPO_NAME}..."
 list_users_with_read_access
